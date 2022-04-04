@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalInput: 0
-  speed: 500
+  speed: 400
   jumpForce: 350
   gravityForce: 50
   xRange: -443
