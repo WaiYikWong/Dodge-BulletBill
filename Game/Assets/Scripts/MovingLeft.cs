@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingLeft : MonoBehaviour
 {
-    private float speed = 500;
+    private float speed = 10;
     // Start is called before the first frame update
     void Start()
     {
