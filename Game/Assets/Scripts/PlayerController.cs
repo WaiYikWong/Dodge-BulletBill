@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public float jumpForce = 10.0f;
     public float gravityForce;
-    public float xRange = -443.0f;
+    public float xRange = -15f;
+    public float zRange = 4f;
     public bool onGround = true;
     private Rigidbody playerRb;
     // Start is called before the first frame update
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z < zRange)
+        {
+            transform.position = new Vector3(zRange, transform.position.y, transform.position.x);
         }
     }
     private void OnCollisionEnter(Collision collision)
