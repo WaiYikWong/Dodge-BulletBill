@@ -33,16 +33,16 @@ public class PlayerController : MonoBehaviour
             onGround = false;
         }
 
-        // Keeps the player from falling off the platform
+        // Keeps the player from falling off the platform by detecting if the player is beyond the xRange and stops the playing from moving beyong the xRange
         if (transform.position.x < xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.z < zRange)
-        {
-            transform.position = new Vector3(zRange, transform.position.y, transform.position.x);
-        }
+        //if (transform.position.z < zRange)
+        //{
+        //    transform.position = new Vector3(zRange, transform.position.y, transform.position.x);
+        //}
     }
     private void OnCollisionEnter(Collision collision)
     {
