@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float xRange = -15f;
     public float zRange = 4f;
     public bool onGround = true;
+    public bool gameOver = false;
     private Rigidbody playerRb;
     // Start is called before the first frame update
     void Start()
@@ -44,8 +45,17 @@ public class PlayerController : MonoBehaviour
         //    transform.position = new Vector3(zRange, transform.position.y, transform.position.x);
         //}
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        onGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over!");
+        }
     }
 }
