@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44752127, g: 0.4974771, b: 0.575318, a: 1}
+  m_IndirectSpecularColor: {r: 0.45118672, g: 0.50093716, b: 0.57374495, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 342440494}
   - component: {fileID: 342440493}
   m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
+  m_Name: Floor
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,14 +307,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.04074198, y: -0.90807885, z: 0.3987292, w: -0.12144131}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.11292259, y: 0.27938712, z: -0.95321757, w: 0.023824638}
+  m_LocalPosition: {x: -0.03, y: 2.99, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 132.773, y: -16.076996, z: 178.072}
+  m_LocalEulerAnglesHint: {x: 507.451, y: 526.13696, z: -1.2019958}
 --- !u!1 &787812570
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +709,7 @@ MonoBehaviour:
   xRange: -15
   zRange: 4
   onGround: 1
+  gameOver: 0
 --- !u!136 &1659629945
 CapsuleCollider:
   m_ObjectHideFlags: 0
