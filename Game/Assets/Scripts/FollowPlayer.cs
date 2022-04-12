@@ -13,7 +13,7 @@ public class FollowPlayer : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // smoothes out the camera
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float xRange = -15f;
     public bool onGround = true;
     public bool gameOver = false;
+    public bool hasPowerup = false;
+    public GameObject powerupIndicator;
     private Rigidbody playerRb;
 
     // Start is called before the first frame update
@@ -39,6 +41,28 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
+
+        powerupIndicator.transform.position = transform.position + new Vector3(0, 1.5f, 0);
+    }
+
+    // If the player picks up the powerup then it will destory itself and then will start the coroutine for the count down
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+            powerupIndicator.gameObject.SetActive(true);
+            StartCoroutine(PowerupCountdownRoutine());
+        }
+    }
+
+    // once the Powerup has been picked up this starts and it waits for 7 seconds then the powerup will be gone
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(7);
+        hasPowerup = false;
+        powerupIndicator.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
