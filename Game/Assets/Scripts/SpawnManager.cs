@@ -8,8 +8,8 @@ public class SpawnManager : MonoBehaviour
     private Vector3 spawnPos = new Vector3(5, 2, 0);
     private float startDelay = 2;
     private float repeatRate = 2;
-    //private float spawnRangeY = 20;
-    //private float spawnPosZ = 20;
+    private float spawnRangeY = 10;
+    private float spawnPosZ = 0;
     private PlayerController playerControllerScript;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeY, spawnRangeY), 0, spawnPosZ);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeY, spawnRangeY), 0, spawnPosZ);
     }
 
     void SpawnObstacle ()

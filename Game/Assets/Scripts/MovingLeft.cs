@@ -20,7 +20,7 @@ public class MovingLeft : MonoBehaviour
         // constantly moves Bullet-Bill to the left
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 
-        // Destroys Bullet-Bill when it has gone over the boundry limit
+        // Destroys Bullet-Bill when it has gone over the boundry limit so that it doesn't lag the game
         if (transform.position.x < leftBoundry && gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
