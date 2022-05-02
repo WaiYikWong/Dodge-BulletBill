@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject obstaclePrefab;
+    public Vector3 Center;
+    public Vector3 Size;
     private Vector3 spawnPos = new Vector3(5, 2, 0);
     private float startDelay = 2;
     private float repeatRate = 2;
@@ -19,11 +21,12 @@ public class SpawnManager : MonoBehaviour
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeY, spawnRangeY), 0, spawnPosZ);
+        SpawnRandom();
     }
+
 
     void SpawnObstacle ()
     {

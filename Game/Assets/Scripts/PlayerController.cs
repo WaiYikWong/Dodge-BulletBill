@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // once the Powerup has been picked up this starts and it waits for 7 seconds then the powerup will be gone
+    // Once the Powerup has been picked up this starts and it waits for 7 seconds then the powerup will be gone
     IEnumerator PowerupCountdownRoutine()
     {
         yield return new WaitForSeconds(7);
@@ -69,6 +69,10 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.gameObject.SetActive(false);
     }
 
+    // This function is called upon when there is a collision
+    // Resets the boolean onGround to true if the player has it the ground
+    // And displays 'Game Over!' when the player collides with Bullet-Bill
+    // There are no return values   
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
