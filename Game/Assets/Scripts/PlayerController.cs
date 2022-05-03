@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject powerupIndicator;
     public float horizontalInput;
     public float speed = 10.0f;
     public float jumpForce = 15.0f;
@@ -12,18 +13,19 @@ public class PlayerController : MonoBehaviour
     public bool onGround = true;
     public bool gameOver = false;
     public bool hasPowerup = false;
-    public GameObject powerupIndicator;
     private float boostTimer;
-    private bool speedBoost = false;
-    private bool jumpBoost = false;
+    private bool speedBoost;
+    private bool jumpBoost;
     private Rigidbody playerRb;
     
-
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityForce;
+        speedBoost = false;
+        jumpBoost = false;
+        boostTimer = 0;
     }
 
     // Update is called once per frame
@@ -50,8 +52,6 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
 
-        powerupIndicator.transform.position = transform.position + new Vector3(0, 1.5f, 0);
-
         if (speedBoost)
         {
             boostTimer *= Time.deltaTime;
@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
                 speedBoost = false;
             }
         }
+
+        powerupIndicator.transform.position = transform.position + new Vector3(0, 1.5f, 0);
     }
     // If the player picks up the powerup then it will destory itself and then will start the coroutine for the count down
     private void OnTriggerEnter(Collider other)
@@ -82,8 +84,8 @@ public class PlayerController : MonoBehaviour
             hasPowerup = true;
             speedBoost = true;
             jumpBoost = true;
-            speed = 15.0f;
-            jumpForce = 17.0f;
+            speed = 14.0f;
+            jumpForce = 16.0f;
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
             StartCoroutine(PowerupCountdownRoutine());
@@ -95,6 +97,8 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(7);
         hasPowerup = false;
+        speed = 10.0f;
+        jumpForce = 14.0f;
         powerupIndicator.gameObject.SetActive(false);
     }
 

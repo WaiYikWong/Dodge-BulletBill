@@ -5,13 +5,11 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    public Vector3 Center;
-    public Vector3 Size;
     private Vector3 spawnPos = new Vector3(5, 2, 0);
     private float startDelay = 2;
     private float repeatRate = 2;
-    //private float spawnRangeY = 10;
-    //private float spawnPosZ = 0;
+    private float spawnRangeY = 10;
+    private float spawnPosZ = 0;
     private PlayerController playerControllerScript;
 
     // Start is called before the first frame update
@@ -24,14 +22,15 @@ public class SpawnManager : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    // This functions activates when
+    // This functions activates when...
     void SpawnObstacle ()
     {
         if (playerControllerScript.gameOver == false)
         {
+            Vector3 spawnpos = new Vector3(Random.Range(spawnRangeY, -spawnRangeY), 0, spawnPosZ);
             Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
         }
     }
