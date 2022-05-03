@@ -6,14 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
     public float speed = 10.0f;
-    public float jumpForce = 10.0f;
+    public float jumpForce = 15.0f;
     public float gravityForce;
     public float xRange = -15f;
     public bool onGround = true;
     public bool gameOver = false;
     public bool hasPowerup = false;
     public GameObject powerupIndicator;
+    private float boostTimer;
+    private bool speedBoost = false;
+    private bool jumpBoost = false;
     private Rigidbody playerRb;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -47,14 +51,39 @@ public class PlayerController : MonoBehaviour
         }
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, 1.5f, 0);
-    }
 
+        if (speedBoost)
+        {
+            boostTimer *= Time.deltaTime;
+            if (boostTimer >= 3)
+            {
+                speed = 10.0f;
+                boostTimer = 0;
+                speedBoost = false;
+            }
+        }
+
+        if (jumpBoost)
+        {
+            boostTimer *= Time.deltaTime;
+            if (boostTimer >= 3)
+            {
+                jumpForce = 15.0f;
+                boostTimer = 0;
+                speedBoost = false;
+            }
+        }
+    }
     // If the player picks up the powerup then it will destory itself and then will start the coroutine for the count down
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Powerup"))
         {
             hasPowerup = true;
+            speedBoost = true;
+            jumpBoost = true;
+            speed = 15.0f;
+            jumpForce = 17.0f;
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
             StartCoroutine(PowerupCountdownRoutine());
@@ -71,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     // This function is called upon when there is a collision
     // Resets the boolean onGround to true if the player has it the ground
-    // And displays 'Game Over!' when the player collides with Bullet-Bill
+    // Displays 'Game Over!' when the player collides with Bullet-Bill
     // There are no return values   
     private void OnCollisionEnter(Collision collision)
     {
