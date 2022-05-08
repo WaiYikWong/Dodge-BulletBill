@@ -8,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 2;
     private float repeatRate = 2;
     private float spawnRangeY = 5;
-    //private float spawnPosY = 3;
     private PlayerController playerControllerScript;
 
     // Start is called before the first frame update
@@ -27,11 +26,11 @@ public class SpawnManager : MonoBehaviour
     // This functions activates when the game hasn't detect you hitting Bullet-Bill and will contine spawning Bullet-Bill til you hit him and it will stop spawning them
     void SpawnObstacle ()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(0, 0), Random.Range(-spawnRangeY, spawnRangeY));
-        Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
-        //if (playerControllerScript.gameOver == false)
-        //{
 
-        //}
+        if (playerControllerScript.gameOver == false)
+        {
+            Vector3 spawnPos = new Vector3(5, Random.Range(spawnRangeY, -spawnRangeY));
+            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+        }
     }
 }

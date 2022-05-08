@@ -14,10 +14,17 @@ public class MovingLeft : MonoBehaviour
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
+    //private void Start()
+    //{
+    //    playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //    Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+    //}
+
     // Update is called once per frame
     void Update()
     {
-        // constantly moves Bullet-Bill to the left
+        // constantly moves Bullet-Bill to the left at a constant rate
         transform.Translate(Vector3.left * Time.deltaTime * speed);
 
         // Destroys Bullet-Bill when it has gone over the boundry limit so that it doesn't lag the game
@@ -26,4 +33,12 @@ public class MovingLeft : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Ignored")
+    //    {
+    //        Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+    //    }
+    //}
 }

@@ -13,10 +13,11 @@ public class PlayerController : MonoBehaviour
     public bool onGround = true;
     public bool gameOver = false;
     public bool hasPowerup = false;
+    private GameManager gameManager;
+    private Rigidbody playerRb;
     private float boostTimer;
     private bool speedBoost;
     private bool jumpBoost;
-    private Rigidbody playerRb;
     
     // Start is called before the first frame update
     void Start()
@@ -90,6 +91,11 @@ public class PlayerController : MonoBehaviour
             powerupIndicator.gameObject.SetActive(true);
             StartCoroutine(PowerupCountdownRoutine());
         }
+
+        if (gameObject.CompareTag("Obstacle"))
+        {
+            gameManager.GameOver();
+        }
     }
 
     // Once the Powerup has been picked up this starts and it waits for 7 seconds then the powerup will be gone
@@ -115,7 +121,8 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
-            Debug.Log("Game Over!");
+            Debug.Log("Game Over! You suck get better lmao.");
+
         }
     }
 }
