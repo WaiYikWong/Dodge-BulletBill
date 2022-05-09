@@ -8,17 +8,10 @@ public class MovingLeft : MonoBehaviour
     private float speed = 10;
     private PlayerController playerControllerScript;
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-    //}
-
-    private void Start()
+    //Start is called before the first frame update
+    void Start()
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     // Update is called once per frame
@@ -31,14 +24,6 @@ public class MovingLeft : MonoBehaviour
         if (transform.position.x < leftBoundry && gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ignored")
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
         }
     }
 }

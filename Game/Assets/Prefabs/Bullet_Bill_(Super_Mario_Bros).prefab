@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 6139946783540924008}
   - component: {fileID: 5257727781952427064}
   - component: {fileID: -6717687195918965240}
+  - component: {fileID: -8990637709488549228}
   m_Layer: 0
   m_Name: Bullet_Bill_(Super_Mario_Bros)
   m_TagString: Obstacle
@@ -192,14 +193,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5978751930081660861}
   serializedVersion: 2
-  m_Mass: 1e+9
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 104
+  m_CollisionDetection: 1
 --- !u!65 &5257727781952427064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223,6 +224,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b9be0b9bc1c5c3469e3f96a26d9dede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8990637709488549228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978751930081660861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c7417d7aa1d8443be235e00c9d768e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6206002021163535878

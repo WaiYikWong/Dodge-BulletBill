@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class BackgroundMoving : MonoBehaviour
 {
-    private float speed = 20;
-    private PlayerController playerControllerScript;
+    [Range(-1f, 1f)]
+    public float scrollSpeed = 0.5f;
+    private float offset;
+    private Material mat;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        mat = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
+    // It moves the background in a cycle
     void Update()
     {
-        if (playerControllerScript.gameOver == false)
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
-        }
+        offset += (Time.deltaTime * scrollSpeed) / 10f;
+        mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }
 }

@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     public bool onGround = true;
     public bool gameOver = false;
     public bool hasPowerup = false;
-    private GameManager gameManager;
+    public GameManager gameManager;
     private Rigidbody playerRb;
+    private ScoreManager scoreManager;
     private float boostTimer;
     private bool speedBoost;
     private bool jumpBoost;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
 
+        // Sets up for the OnTriggerEnter
         if (speedBoost)
         {
             boostTimer *= Time.deltaTime;
@@ -85,26 +87,21 @@ public class PlayerController : MonoBehaviour
             hasPowerup = true;
             speedBoost = true;
             jumpBoost = true;
-            speed = 14.0f;
-            jumpForce = 16.0f;
+            speed = 10.0f;
+            jumpForce = 10.0f;
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
-            StartCoroutine(PowerupCountdownRoutine());
-        }
-
-        if (gameObject.CompareTag("Obstacle"))
-        {
-            gameManager.GameOver();
+            StartCoroutine(PowerupCountDownRoutine());
         }
     }
 
     // Once the Powerup has been picked up this starts and it waits for 7 seconds then the powerup will be gone
-    IEnumerator PowerupCountdownRoutine()
+    IEnumerator PowerupCountDownRoutine()
     {
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         speed = 10.0f;
-        jumpForce = 14.0f;
+        jumpForce = 8.0f;
         powerupIndicator.gameObject.SetActive(false);
     }
 
@@ -121,7 +118,6 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
-            Debug.Log("Game Over!");
         }
     }
 }
