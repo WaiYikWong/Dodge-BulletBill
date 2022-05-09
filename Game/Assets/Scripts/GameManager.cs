@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Transform obstacle;
     private int score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +25,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = ("Points: " + score);
-        if (transform.position.x > obstacle.position.x)
+        if (obstacle && obstacle.position.x <= -10.0f)
         {
-            score++;
-        }
 
-        //scoreText.text = ("Points: " + score);
-        //if (obstacle.position.x < -10)
-        //{
-        //    score++;
-        //}
+            score += 10;
+            scoreText.text = ("Points: " + score);
+        }
     }
 }

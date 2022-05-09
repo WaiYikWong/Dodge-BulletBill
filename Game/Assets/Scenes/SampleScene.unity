@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.25346467, g: 0.23169556, b: 0.17592141, a: 1}
+  m_IndirectSpecularColor: {r: 0.421067, g: 0.45087004, b: 0.4711703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -641,14 +641,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.051980402, y: 0.013554687, z: 0.018949071, w: 0.9983763}
+  m_LocalRotation: {x: 0.05087686, y: 0.011535952, z: 0.020241518, w: 0.99843323}
   m_LocalPosition: {x: 1.6, y: 3.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 185.987, y: -178.554, z: -177.901}
+  m_LocalEulerAnglesHint: {x: 174.196, y: -178.555, z: -177.604}
 --- !u!1 &787812570
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 1000633806}
   - component: {fileID: 1000633809}
   - component: {fileID: 1000633810}
+  - component: {fileID: 1000633812}
   - component: {fileID: 1000633811}
   m_Layer: 0
   m_Name: Background
@@ -930,7 +931,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 581b8afac79ab9d4ab2bea4641e5b6a1, type: 2}
+  - {fileID: 2100000, guid: e1477cdecd51aa44ba261256c23694fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -968,8 +969,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000633804}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 4.7248, y: 6.0018, z: 12}
-  m_LocalScale: {x: 31.920143, y: 0.3, z: 96.77023}
+  m_LocalPosition: {x: 3.1341, y: 17.6627, z: 12}
+  m_LocalScale: {x: 55.241585, y: 0.3, z: 159.15843}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -987,6 +988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b8eac88918a8e40ab820a2e60c32a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0, z: 0}
+  repeatWidth: 0
 --- !u!114 &1000633810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,6 +1015,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9999999, y: 1, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1000633812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000633804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0033c1c68bf1603449d4d27342e13e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1349814672
 GameObject:
   m_ObjectHideFlags: 1

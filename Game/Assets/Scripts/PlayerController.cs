@@ -121,8 +121,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
-            Debug.Log("Game Over! You suck get better lmao.");
-
+            Debug.Log("Game Over!");
         }
     }
 }
